@@ -20,11 +20,11 @@ async function run() {
         const packageCollection = database.collection('packages');
         console.log('ok its working')
         // GET API
-        // app.get('/package', async (req, res) => {
-        //     const cursor = packageCollection.find({});
-        //     const package = await cursor.toArray();
-        //     res.send(package);
-        // });
+        app.get('/package', async (req, res) => {
+            const cursor = packageCollection.find({});
+            const package = await cursor.toArray();
+            res.send(package);
+        });
 
         // GET Single Service
         // app.get('/package/:id', async (req, res) => {
@@ -36,14 +36,14 @@ async function run() {
         // })
 
         // POST API
-        // app.post('/package', async (req, res) => {
-        //     const package = req.body;
-        //     console.log('hit the post api',package);
+        app.post('/package', async (req, res) => {
+            const package = req.body;
+            console.log('hit the post api', package);
 
-        //     const result = await packageCollection.insertOne(package);
-        //     console.log(result);
-        //     res.json(result)
-        // });
+            const result = await packageCollection.insertOne(package);
+            console.log(result);
+            res.json(result)
+        });
 
         // DELETE API
         // app.delete('/package/:id', async (req, res) => {
